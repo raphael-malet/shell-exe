@@ -15,4 +15,3 @@ then
 	 div=$(( $1 / $3 ))
 		echo "$div"
 fi
-exit
