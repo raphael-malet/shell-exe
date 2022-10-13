@@ -1,1 +1,11 @@
-curl --anyauth --user raphael.malet@laplateforme.io:Vatefaireencule99 https://alcasar.laplateforme.io/intercept.php
+lynx -accept_all_cookies -auth=my_domain\\my_user:my_password 
+https://alcasar.laplateforme.io/intercept.php
+
+echo "username=my_users&password=my_password" |lynx https://mydomain.com/intercept.php 
+-post_data
+exit
+
+lynx -auth=my_users:my_password https://mydomain.com/intercept.php
+exit
+
+curl -u username:password https://mydomaine.com/intercept.php

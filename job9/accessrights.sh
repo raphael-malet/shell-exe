@@ -21,5 +21,4 @@ then
 sudo usermod -aG sudo "${prenom[$index]}-${nom[$index]}"
 
 fi
-
 done
