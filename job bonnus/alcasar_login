@@ -1,11 +1,7 @@
-lynx -accept_all_cookies -auth=my_domain\\my_user:my_password 
-https://alcasar.laplateforme.io/intercept.php
+challenge=$(curl -L --request GET https://alcasar.laplateforme.io/intercept.php 2>&1 | grep -po 'name="challenge" value=\K.*?(?=")')
+userurl=$(curl -L --request GET https://alcasar.laplateforme.io/intercept.php 2>&1 | grep -po 'name="userurl" value="\K.*?(?=")')
+username=$1
+passwd=$2
 
-echo "username=my_users&password=my_password" |lynx https://mydomain.com/intercept.php 
--post_data
-exit
+curl -l --request POST --url https://alcasar.laplateforme.io/intercept.php --header 'content-Type : multipart/form-data' --form challenge=$challenge --form userurl=$userurl --form username=$username --form password=$passwd --form button=Authentication --location https://alcasar.laplateforme.io
 
-lynx -auth=my_users:my_password https://mydomain.com/intercept.php
-exit
-
-curl -u username:password https://mydomaine.com/intercept.php
